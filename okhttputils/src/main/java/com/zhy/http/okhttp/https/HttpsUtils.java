@@ -68,7 +68,7 @@ public class HttpsUtils {
             } else {
                 trustManager = new TrustAllCerts();
             }
-            sslContext.init(keyManagers, new TrustManager[]{trustManager}, null);
+            sslContext.init(keyManagers, new TrustManager[]{trustManager}, new SecureRandom());
             sslParams.sslSocketFactory = sslContext.getSocketFactory();
             sslParams.trustManager = trustManager;
             return sslParams;
